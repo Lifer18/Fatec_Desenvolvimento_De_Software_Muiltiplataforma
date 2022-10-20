@@ -1,0 +1,43 @@
+body
+{
+    background-image: url("../_img/fundo.png");
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.border-white {
+    border-color: rgba(233, 239, 192, 0.75) !important;
+ }
+
+.nav{
+    background-color: #648767ff;
+}
+
+.logonav{
+    width: 130px;
+    background-color: #e9efc0ff;
+}
+
+.verdeclaro{
+    background-color: #9fd4aaff;
+}
+
+.verdemedio
+{
+    background-color: #83bd75ff;
+}
+
+.verdeforte{
+    background-color: #48a460ff;
+}
+
+.preco{
+    color: #e9efc0ff;
+}
+  
+
+
+.logo
+{
+    width: 350px;
+}
+   
