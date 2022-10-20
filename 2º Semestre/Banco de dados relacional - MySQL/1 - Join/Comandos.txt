@@ -1,0 +1,27 @@
+ALTER TABLE alunos
+ADD sobrenome VARCHAR(40);
+
+UPDATE alunos
+SET sobrenome = " Fatec ";
+
+SELECT CONCAT(a.nome," ", a.sobrenome, " - ", b.idDisciplina, " - ", b.mediafinal)
+AS Nomecompleto
+FROM alunos a, historico b 
+WHERE b.idAluno = a.id
+
+SELECT id, 
+	if(CHAR_LENGTH(nome) < 20,
+	 CONCAT(LEFT(nome, 10),'...'),nome) soma FROM alunos;
+	
+SELECT REPLACE("Fatec Araras","a","@")
+
+
+SELECT 5+5
+
+SELECT 		DAY (CURRENT_DATE()) dia,
+		MONTH	(CURRENT_DATE()) mes,
+		YEAR	(CURRENT_DATE()) ano
+
+SELECT RPAD("GAY", 50, "Y")
+
+SELECT a.nome, b.mediafinal FROM alunos a LEFT JOIN    historico b ON a.id = b.idaluno

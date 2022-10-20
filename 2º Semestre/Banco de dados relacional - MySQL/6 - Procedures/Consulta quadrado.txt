@@ -1,0 +1,14 @@
+/*Uma procedure com entrada/saída de um mesmo parâmetro*/
+delimiter $$
+CREATE PROCEDURE elevar_ao_quadrado (INOUT num INT)
+BEGIN
+
+SET num = num * num;
+
+END $$
+delimiter ;
+
+/*Setando um valor para a variável de parâmetro, e logo após, dando um SELECT na mesma*/
+SET @valor = 5;
+CALL elevar_ao_quadrado(@valor);
+SELECT @valor;

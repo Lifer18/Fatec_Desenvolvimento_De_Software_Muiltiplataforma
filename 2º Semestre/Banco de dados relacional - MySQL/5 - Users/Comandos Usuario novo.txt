@@ -1,0 +1,14 @@
+CREATE USER 'Fatec'@'localhost' IDENTIFIED BY '1234';
+
+
+/*GRANT tipo de permissao ON nome base de dados . nome da tabela TO 'nome do usuario'@'localhost';*/
+
+GRANT SELECT ON empresa2.cliente TO 'Fatec'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON empresa2.cargo TO 'Fatec'@'localhost';
+
+GRANT SELECT ON empresa2.regiao TO 'Fatec'@'localhost';
+
+GRANT SELECT ON empresa2.representante TO 'Fatec'@'localhost';
+
+REVOKE DELETE ON empresa2.cargo FROM 'Fatec'@'localhost';

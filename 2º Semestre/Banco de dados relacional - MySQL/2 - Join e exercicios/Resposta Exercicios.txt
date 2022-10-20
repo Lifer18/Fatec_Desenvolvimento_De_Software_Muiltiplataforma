@@ -1,0 +1,11 @@
+ SELECT c.nome, r.nome FROM cliente c INNER JOIN representante r ON c.idrepresentante = r.id ORDER BY r.nome; -- 1
+ 
+ SELECT * FROM pedido ORDER BY id DESC LIMIT 1; -- 2 sem subconsulta
+ 
+ SELECT * FROM pedido WHERE id = (SELECT MAX(id) FROM pedido); -- 2 com subconsulta
+ 
+ SELECT * FROM pedido WHERE datemissao < (SELECT MAX(datemissao) FROM pedido); -- 3
+ 
+ SELECT c.id,c.nome,c.telefone FROM cliente c INNER JOIN pedido p ON c.id = p.id AND p.id = (SELECT MIN(id) FROM pedido); -- 4
+ 
+ SELECT p.id,p.datemissao,(i.quantidade * i.precounitario) as total FROM pedido p, item i ORDER BY p.id;

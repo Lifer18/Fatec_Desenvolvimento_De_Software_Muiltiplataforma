@@ -1,0 +1,16 @@
+delimiter $$
+CREATE PROCEDURE acumula_while(IN limite INT)
+BEGIN
+	DECLARE contador INT DEFAULT 0;
+	DECLARE soma INT DEFAULT 0;
+	
+	while contador < limite do
+		SET contador = contador +1;
+		SET soma = soma + contador;
+	END while;
+	SELECT soma;
+	
+END $$
+delimiter ;
+
+CALL acumula_while(10);

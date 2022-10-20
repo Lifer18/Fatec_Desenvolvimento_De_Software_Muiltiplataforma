@@ -1,0 +1,19 @@
+/* PROCEDURE ifs elses*/
+delimiter $$
+CREATE OR REPLACE PROCEDURE lista_cliente(IN opcao INT ) 
+BEGIN
+    
+    if opcao = 0 then
+        SELECT * FROM cliente WHERE tipo = "F";
+    ELSE
+       if opcao = 1 then
+           SELECT * FROM cliente WHERE tipo = "J";
+       ELSE
+            SELECT * FROM cliente;
+        END if;
+    END if;
+
+
+
+END $$
+delimiter ;

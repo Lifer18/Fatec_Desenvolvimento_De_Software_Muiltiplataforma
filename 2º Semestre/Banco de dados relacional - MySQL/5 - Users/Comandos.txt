@@ -1,0 +1,12 @@
+SELECT * FROM cargo;
+
+UPDATE cargo SET salario = 2200 WHERE id = 4;
+
+INSERT INTO cargo VALUES (6,'TESTE',1000);
+
+DELETE FROM cargo WHERE id = 6;
+
+SELECT c.nome, r.descricao AS 'cidade', r.estado FROM cliente c, regiao r WHERE c.idregiao = r.id;
+
+
+SELECT c.nome, r.descricao AS 'cidade', r.estado FROM cliente c, regiao r, representante p WHERE c.idregiao = r.id AND c.idrepresentante = p.id; 

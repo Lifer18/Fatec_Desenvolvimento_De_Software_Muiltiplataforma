@@ -1,0 +1,17 @@
+delimiter $$
+CREATE PROCEDURE acumula(IN limite INT)
+BEGIN
+	DECLARE contador INT DEFAULT 0;
+	DECLARE soma INT DEFAULT 0;
+	
+	meu_loop:LOOP
+		SET contador = contador + 1;
+		SET soma = soma + contador;
+		/*SE o contador for maior que o limite então SAIA do LOOP*/
+		if contador >= limite then
+			LEAVE meu_loop;
+		END if;
+	END LOOP meu_loop;
+	
+END $$
+delimiter ;

@@ -1,0 +1,40 @@
+SELECT p.id, p.descricao FROM produto p;
+
+/*buscar a quantidade de ocorrencias de cada produto*/
+SELECT p.id, p.descricao, (SELECT COUNT(*) FROM item i WHERE i.idproduto = p.id) AS ocorrencias FROM produto p;
+
+/*buscar a quantidade vendida de cada produto*/
+SELECT p.id, p.descricao, (SELECT COUNT(*) FROM item i WHERE i.idproduto = p.id) AS ocorrencias, (SELECT SUM(i.quantidade) FROM item i WHERE i.idproduto = p.id) AS Quantidade_Vendida FROM produto p;
+
+/*buscar o total de cada produto*/
+SELECT p.id, p.descricao, (SELECT COUNT(*) FROM item i WHERE i.idproduto = p.id) AS ocorrencias, (SELECT FORMAT(SUM(i.quantidade),0) FROM item i WHERE i.idproduto = p.id) AS Quantidade_Vendida, (SELECT FORMAT(SUM(i.quantidade)*i.precounitario, 2) FROM item i WHERE i.idproduto = p.id) AS Total FROM produto p;
+
+/*fazer a mesma coisa sem subconsulta*/
+SELECT p.id, p.descricao, COUNT(i.idproduto), SUM(i.quantidade), SUM(i.quantidade) * precounitario FROM produto p , item i WHERE i.idproduto = p.id GROUP BY 1,2;
+
+
+/*Subconsulta como FROM*/
+SELECT c2.nome FROM(SELECT c.id, c.nome, c.municipio FROM cliente c WHERE c.estado = 'SP') AS c2 WHERE c2.municipio = 'ITAPIRA';
+
+
+SELECT idcliente , c.nome, SUM(quantidade * precounitario) AS total FROM (SELECT p.idcliente, p.datemissao, p.idformapagto, i.idproduto, i.quantidade, i.precounitario FROM pedido p, item i WHERE i.idpedido = p.id) AS t, cliente c WHERE c.id = t.idcliente GROUP BY 1;
+
+
+
+SELECT idformapagto , f.descricao, SUM(quantidade * precounitario) AS total FROM (SELECT p.idcliente, p.datemissao, p.idformapagto, i.idproduto, i.quantidade, i.precounitario FROM pedido p, item i WHERE i.idpedido = p.id) AS t, formapagto f WHERE f.id = t.idformapagto GROUP BY 1;
+
+
+SELECT idproduto , p.descricao, SUM(quantidade * precounitario) AS total FROM (SELECT p.idcliente, p.datemissao, p.idformapagto, i.idproduto, i.quantidade, i.precounitario FROM pedido p, item i WHERE i.idpedido = p.id) AS t, produto p WHERE p.id = t.idproduto GROUP BY 1;
+
+ALTER TABLE cliente ADD tipo CHAR(1);
+
+UPDATE cliente SET tipo = "J";
+
+INSERT INTO cliente VALUES (7,"JOSE VANTUAM","RUA 8","27","","CENTRO","ARARAS","13600-000","SP","",1,1,"F"), (8,"AGOSTINHO DE HIPONA","RUA CONFISSOES","430","","CENTRO","RIO CLARO","13506-000","SP","",2,1,"F")
+
+SELECT nome, municipio, 
+	CASE 
+		WHEN tipo="J" THEN "Pessoa Juridica"
+		WHEN tipo="F" THEN "Pessoa Fisica"
+	END AS tipo
+FROM cliente;

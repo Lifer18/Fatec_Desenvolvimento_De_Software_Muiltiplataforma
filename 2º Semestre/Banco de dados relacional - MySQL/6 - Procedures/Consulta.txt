@@ -1,0 +1,40 @@
+/*Cria uma procedure nova*/
+delimiter $$
+CREATE PROCEDURE selecionar_produtos(IN qtde INT)
+BEGIN
+
+	SELECT * FROM produto LIMIT qtde;
+	
+END $$
+delimiter ;
+
+
+/*Chama a procedure criada*/
+CALL selecionar_produtos(3);
+
+
+/*Cria uma outra procedure com o mesmo nome, que altera a antiga caso seja existente*/
+delimiter $$
+CREATE OR REPLACE PROCEDURE selecionar_produtos(IN qtde INT,IN idprod INT)
+BEGIN
+
+	SELECT * FROM produto 
+	WHERE id = idprod
+	LIMIT qtde;
+	
+END $$
+delimiter ;
+
+CALL selecionar_produtos(1,3);
+
+
+/*Novo procedure, com retorno (OUT)*/
+delimiter $$
+CREATE PROCEDURE verifica_quantidade_produto(OUT qtde INT)
+BEGIN
+	
+	/*Utiliza o "INTO" para colocar o retorno na variável qtde*/
+	SELECT COUNT(*) INTO qtde FROM produto;
+
+END $$
+delimiter ;
