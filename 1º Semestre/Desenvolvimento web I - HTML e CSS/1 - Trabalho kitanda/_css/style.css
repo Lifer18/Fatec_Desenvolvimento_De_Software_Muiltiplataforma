@@ -1,0 +1,147 @@
+body{
+    margin: 0 auto;
+    font-family: 'Rubik', sans-serif;
+    background-color: #459124;
+    }
+
+nav{
+	height: 60px;
+	line-height: 60px;
+	}
+
+h1{
+    font-size: 2rem;
+    text-align: center;
+    }
+
+h2{
+    text-align: center;
+}
+
+img{display: block;
+    margin: 0 auto;
+    }
+
+ul{
+    list-style-position: inside;
+    margin: auto;
+    }
+
+li{
+    padding: 15px;
+    font-size: 1.0rem;
+    }
+
+tr{
+    border : 5px black solid;
+    padding : 5px;
+    }
+
+td{
+    border : 1px black solid;
+    padding : 5px;   
+    }
+
+th{
+    border : 1px black solid;
+    padding : 5px;
+    }  
+
+table{
+    background-color: white;
+    color: black;
+    border : 1px black solid;
+    padding : 5px; 
+
+    }
+
+article{
+    padding-bottom: 50px;
+    }
+
+footer{
+    height: 50px;
+    padding-top: 5px;
+    text-align: center;
+    }
+
+a.navs{
+        text-decoration: none;
+        padding-left: 100px;
+        color: white;
+        }
+a:hover.navs{
+        text-decoration: underline;
+        color: black;
+        }
+
+a.navs1{
+        text-decoration: none;
+        padding-left: 200px;
+        color: white;
+        }
+a:hover.navs1{
+        text-decoration: underline;
+        color: black;
+        }
+    
+.container{
+    width: 960px;
+    margin: 0 auto;
+    box-shadow: 0 1px 50px black;
+    }
+
+.branco{
+    background-color: white;
+    }
+
+.verde{
+    background-color: #6abd45;
+    color: white;
+    }
+    
+    
+.imgtopo{
+    width: 35%;
+    }
+.pad{
+    padding: 90px;
+    margin-top: -5px;
+    }
+
+
+.pinicio{
+    text-align: center;
+    padding: 96px;
+    padding-top: 10px;
+    }
+
+
+.imgop{
+    width: 35%;
+    border-radius: 25%;
+    }
+
+.op{
+    margin-left: 40%;
+    }
+
+.aop{
+    color: white;
+    text-decoration: none;
+    }
+
+.tabela{
+    margin-left: 28%;
+    margin-right: auto;
+    }
+
+.avoltar{
+    color: white;
+    text-decoration: none;
+    }
+
+.voltar{
+    margin-bottom: 0px;
+    padding-bottom: 50px;
+}
